@@ -1,0 +1,126 @@
+.wd-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid lightgray;
+  }
+  
+  .wd-icon {
+    color: gray;
+}
+  
+  .wd-table-heading {
+    padding: 12px;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .wd-image {
+    width: 80px;
+    border-radius: 50%;
+    background-color: black;
+    padding: 5px;
+  }
+  .wd-post{
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .wd-tweet {
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+  }
+  
+  .wd-tweet-header {
+    padding: 10px;
+    display: flex;
+    gap: 50px;
+    width:90%;
+}
+
+  .wd-bluetick{
+    height: 20px;
+    width: 20px;
+  }
+  
+  .wd-tweet-info {
+    padding: 10px;
+    gap: 4px;
+    width: 98%;
+  }
+  
+  .wd-tweet-username {
+    font-weight: bold;
+  }
+  
+  .wd-tweet-userid,
+  .wd-tweet-date {
+    color: gray;
+  }
+  
+  .wd-tweet-more {
+    color: gray;
+    float: right;
+    text-align: right;
+  }
+  
+  .wd-tweet-text {
+    margin-top: 8px;
+  }
+  
+  .wd-tweet-media {
+    margin: 10px;
+    border: 1px solid lightgray;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 90%;
+ 
+  }
+  
+  .wd-media-image {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 8px;
+  }
+  
+  .wd-media-link {
+    margin: 10px;
+    color: blue;
+  }
+  
+  .wd-media-title {
+    margin: 10px;
+    margin-bottom: 8px;
+  }
+  
+  .wd-media-description {
+    margin: 10px;
+    color: gray;
+  }
+  
+  .wd-tweet-actions {
+    margin: 10px;
+    display: flex;
+    gap: 200px;
+  }
+
+  .wd-tweet-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .wd-tweet-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  
+  .wd-tweet-text {
+    margin-top: 8px;
+  }
+  
+  .wd-icon-red{
+    color: red;
+  }
