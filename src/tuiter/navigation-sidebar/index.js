@@ -3,10 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 const NavigationSidebar = () => {
  const { pathname } = useLocation();
  const [ignore, tuiter, active] = pathname.split("/");
+ const isDefaultActive = !active || active === "home";
+ //console.log("Default checking boolean", !active ,isDefaultActive)
  return (
    <div className="list-group">
      <Link to={"/tuiter/home "} className={`list-group-item
-                ${active === "home" ? "active" : ""}`}>Home</Link>
+                ${isDefaultActive? "active" : ""}`}>Home</Link>
      <Link to={"/tuiter/explore "} className={`list-group-item
                 ${active === "explore" ? "active" : ""}`}>Explore</Link>
      <Link to={"/tuiter/notifications "} className={`list-group-item
