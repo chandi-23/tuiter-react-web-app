@@ -4,7 +4,10 @@ import { IoMdRepeat } from "react-icons/io";
 import  { useState } from "react";
 import { FiUpload } from "react-icons/fi";
 import { FaRegComment } from "react-icons/fa";
-
+import { updateTuitThunk } from "../services/tuits-thunks";
+import { useDispatch } from "react-redux";
+import { FaHeart } from "react-icons/fa";
+import { FaThumbsDown } from 'react-icons/fa';
 
 const TuitStats = (
     {
@@ -19,6 +22,7 @@ const TuitStats = (
          "replies": 0,
          "retuits": 0,
          "likes": 0,
+         "dislikes":0,
          "handle": "@spacex",
          "tuit": "You want to wake up in the morning and think the future is going to be great - and that’s what being a spacefaring civilization is all about. It’s about believing in the future and thinking that the future will be better than the past. And I can’t think of anything more exciting than going out there and being among the stars"
        }
@@ -26,32 +30,35 @@ const TuitStats = (
 ) => {
     const [isLiked, setIsLiked] = useState(tuit.liked);
     const [likeCount, setLikeCount] = useState(tuit.likes);
+    const [dislikeCount, setdisLikeCount] = useState(tuit.dislikes);
+
     //console.log(isLiked, likeCount)
-
-    const handleLike = () => {
-        //console.log("inside the handle like")
-        if (isLiked) {
-        setLikeCount(likeCount - 1);
-        } else {
-        setLikeCount(likeCount + 1);
-        }
-        setIsLiked(!isLiked);
-    };
-
+    const dispatch = useDispatch();
     return(
 
       <div className="col-10"> 
         <div className="d-flex justify-content-between">
           <div ><FaRegComment size={25}/> {tuit.replies}</div>
           <div><IoMdRepeat size={25} /> {tuit.retuits}</div>
-          <div onClick={handleLike}>
-             {isLiked ? (
-            <AiFillHeart size={25} style={{ color: "red" }} />
-            ) : (
-            <AiOutlineHeart size={25} />
-            )}
-            {likeCount}
-         </div>
+          <div>
+          <FaHeart
+            className="text-danger"
+            onClick={() =>
+              dispatch(updateTuitThunk({ ...tuit, likes: tuit.likes + 1 }))
+            }
+            />
+            <span className="ms-2">{tuit.likes}</span></div>
+          <div>
+          <FaThumbsDown
+            color="blue"
+            onClick={() =>
+              dispatch(updateTuitThunk({ ...tuit, dislikes: tuit.dislikes + 1 }))
+            }
+            />
+            <span className="ms-2">{tuit.dislikes}</span>
+          </div>
+            
+
           <div><FiUpload size={25}/></div>
       </div>
       </div>

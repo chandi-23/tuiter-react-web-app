@@ -13,8 +13,16 @@ import {Provider} from "react-redux";
 
 import tuitsReducer from "./reducers/tuits-reducer";
 
+import LoginScreen from "./user/login-screen";
+import authReducer from "./reducers/auth-reducer";
+import RegisterScreen from "./user/register-screen";
+
+
 const store = configureStore(
-  {reducer: {who: whoReducer,  tuits: tuitsReducer}});
+  {reducer: {
+    who: whoReducer,  
+    tuits: tuitsReducer,
+    user:  authReducer}});
 
 
 function Tuiter() {
@@ -32,6 +40,8 @@ function Tuiter() {
         <Route path="/explore" element={<ExploreScreen />} />
         <Route path="/bookmarks" element={<BookmarksScreen />} />
         <Route path="/profile" element={<ProfileScreen />} />
+        <Route path="/login"    element={<LoginScreen    />} />
+        <Route path="/register"    element={<RegisterScreen    />} />
         <Route path="/" element={<Outlet />}>
         <Route index element={<HomeScreen />} />
       </Route>

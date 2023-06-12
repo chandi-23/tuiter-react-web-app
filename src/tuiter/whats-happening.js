@@ -6,9 +6,9 @@ import { BsEmojiSmile } from "react-icons/bs";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { BiBold, BiItalic } from "react-icons/bi";
 import { AiOutlineFileGif } from "react-icons/ai";
-import {createTuit} from "./reducers/tuits-reducer";
+//import {createTuit} from "./reducers/tuits-reducer";
 import {useDispatch} from "react-redux";
-
+import { createTuitThunk } from "./services/tuits-thunks";
 
 const WhatsHappening = () => {
  let [whatsHappening, setWhatsHappening] = useState('');
@@ -17,7 +17,9 @@ const WhatsHappening = () => {
     const newTuit = {
       tuit: whatsHappening
     }
-    dispatch(createTuit(newTuit));
+    //console.log(newTuit)
+    newTuit.image = "nasa-logo.jpg"
+    dispatch(createTuitThunk(newTuit));
     setWhatsHappening("");
   }
  

@@ -2,8 +2,9 @@ import React from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import TuitStats from "./tuit-stats";
 import {useDispatch} from "react-redux";
-import { deleteTuit } from "../reducers/tuits-reducer";
+//import { deleteTuit } from "../reducers/tuits-reducer";
 import { BiFontSize, BiX } from "react-icons/bi";
+import { deleteTuitThunk } from "../services/tuits-thunks";
 
 const TuitItem = (
  {
@@ -25,7 +26,8 @@ const TuitItem = (
 ) => {
   const dispatch = useDispatch();
 const deleteTuitHandler = (id) => {
-  dispatch(deleteTuit(id));
+  //dispatch(deleteTuit(id));
+  dispatch(deleteTuitThunk(id));
 }
 
  return(
