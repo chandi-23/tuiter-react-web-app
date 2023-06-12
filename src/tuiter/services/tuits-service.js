@@ -10,6 +10,7 @@ console.log("from the boss2: ", API_BASE)
 export const findTuits = async () => {
     const response = await axios.get(TUITS_API);
     const tuits = response.data;
+    console.log(tuits)
     return tuits;
    }
 
