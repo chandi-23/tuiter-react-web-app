@@ -19,6 +19,7 @@ const WhatsHappening = () => {
     }
     //console.log(newTuit)
     newTuit.image = "nasa-logo.jpg"
+    newTuit.dislikes = 0
     dispatch(createTuitThunk(newTuit));
     setWhatsHappening("");
   }
