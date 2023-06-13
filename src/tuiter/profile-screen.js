@@ -54,9 +54,9 @@ function ProfileScreen() {
        }}/>
      </div></div>
    )}
-   <button class="btn btn-danger m-2"
+   <button className="btn btn-danger m-2"
     onClick= {handleLogout}>                   Logout</button>
-   <button class="btn btn-secondary m-2" onClick={save}>Save  </button>
+   <button className="btn btn-secondary m-2" onClick={save}>Save  </button>
   </div> );
 
 
