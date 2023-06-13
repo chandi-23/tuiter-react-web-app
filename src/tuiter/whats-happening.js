@@ -20,6 +20,10 @@ const WhatsHappening = () => {
     //console.log(newTuit)
     newTuit.image = "nasa-logo.jpg"
     newTuit.dislikes = 0
+    newTuit.username= "Nasa"
+    newTuit.time = "1m"
+    newTuit.title = "Nasa's default title"
+    newTuit.topic="Nasa Topic"
     dispatch(createTuitThunk(newTuit));
     setWhatsHappening("");
   }

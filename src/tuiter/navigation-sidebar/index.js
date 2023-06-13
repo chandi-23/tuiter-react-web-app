@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const NavigationSidebar = () => {
 
   const { currentUser } = useSelector((state) => state.user);
-  console.log(currentUser)
+  //console.log("from the nav bar", currentUser)
  const { pathname } = useLocation();
  const [ignore, tuiter, active] = pathname.split("/");
  const isDefaultActive = !active || active === "home";
@@ -29,12 +29,13 @@ const NavigationSidebar = () => {
 
      <Link to={"/tuiter/more "} className={`list-group-item
                 ${active === "more" ? "active" : ""}`}>More</Link>
-    {!currentUser && <Link className={`list-group-item
-                ${active === "login" ? "active" : ""}`} to="/tuiter/login">   Login   </Link>}
-     {!currentUser && <Link className={`list-group-item
-                ${active === "register" ? "active" : ""}`} to="/tuiter/register">Register</Link>}
-     { currentUser && <Link className={`list-group-item
-                ${active === "profile" ? "active" : ""}`} to="/tuiter/profile"> Profile </Link>}
+
+    {!currentUser && <Link to="/tuiter/login" className={`list-group-item
+                ${active === "login" ? "active" : ""}`} >   Login   </Link>}
+     {!currentUser && <Link to="/tuiter/register" className={`list-group-item
+                ${active === "register" ? "active" : ""}`} >Register</Link>}
+     { currentUser && <Link  to="/tuiter/profile" className={`list-group-item
+                ${active === "profile" ? "active" : ""}`}> Profile </Link>}
 
    </div>
  );

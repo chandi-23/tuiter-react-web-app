@@ -6,48 +6,57 @@ import { profileThunk, updateUserThunk, logoutThunk } from "./services/auth-thun
 function ProfileScreen() {
  const { currentUser } = useSelector((state) => state.user);
  const [profile, setProfile] = useState(currentUser);
- console.log(profile)
+ //console.log("fetched profile is:",profile)
  const dispatch = useDispatch();
  const navigate = useNavigate();
 
  const save = () => { dispatch(updateUserThunk(profile)); };
- useEffect(()=> {
-  async function fetchData() {
-   const { payload } = await dispatch(profileThunk());
-   setProfile(payload);
-  }
- }, []);
+
+ useEffect(() => {
+        async function fetchData() {
+         const {payload} = await dispatch(profileThunk());
+          setProfile(payload);
+        }
+    fetchData();
+    },[]);
+    
+    const handleLogout = async () => {
+      try {
+         dispatch(logoutThunk());
+          navigate("/tuiter/login");
+        
+      } catch (e) {
+        alert(e);
+      }
+    }
  return (
   <div>
    <h1>Profile Screen</h1>
    {profile && (<div>
      <div>
       <label>First Name</label>
-      <input type="text" value={profile.firstName}
+      <input type="text" value={profile.firstname}
        onChange={(event) => {
         const newProfile = {
-         ...profile, firstName: event.target.value,
+         ...profile, firstname: event.target.value,
         };
         setProfile(newProfile);
        }}/>
      </div>
      <div>
       <label>Last Name</label>
-      <input type="text" value={profile.lastName}
+      <input type="text" value={profile.lastname}
        onChange={(event) => {
         const newProfile = {
-         ...profile, lastName: event.target.value,
+         ...profile, lastname: event.target.value,
         };
         setProfile(newProfile);
        }}/>
      </div></div>
    )}
-   <button
-    onClick={() => {
-      dispatch(logoutThunk());
-      navigate("tuiter/login");
-    }}>                   Logout</button>
-   <button onClick={save}>Save  </button>
+   <button class="btn btn-danger m-2"
+    onClick= {handleLogout}>                   Logout</button>
+   <button class="btn btn-secondary m-2" onClick={save}>Save  </button>
   </div> );
 
 

@@ -4,8 +4,8 @@ import axios from 'axios';
 
 const API_BASE = process.env.REACT_APP_API_BASE;
 const TUITS_API = `${API_BASE}/tuits`;
-console.log("from the boss",TUITS_API)
-console.log("from the boss2: ", API_BASE)
+//console.log("from the boss",TUITS_API)
+//console.log("from the boss2: ", API_BASE)
 
 export const findTuits = async () => {
     const response = await axios.get(TUITS_API);

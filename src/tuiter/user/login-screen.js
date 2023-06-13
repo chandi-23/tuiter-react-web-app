@@ -9,8 +9,19 @@ function LoginScreen() {
  const dispatch = useDispatch();
  const handleLogin = async () => {
   try {
-    await dispatch(loginThunk({ username, password }));
-    navigate("/tuiter/profile");
+    const resp = await dispatch(loginThunk({ username, password }));
+    
+    if (resp.error){
+      //console.log("response status", resp.error)
+      alert("invalid username/password")
+      setUsername("")
+      setPassword("")
+    }
+    else{
+      navigate("/tuiter/profile");
+    }
+
+    
   } catch (e) {
     alert(e);
   }
@@ -28,10 +39,14 @@ function LoginScreen() {
        <input className="form-control" type="password" value={password}
          onChange={(event) => setPassword(event.target.value)}/>
      </div>
+     <div>
+        <a href={"/tuiter/register"}>Click here to register!</a>
+     </div>
      <button className="btn btn-primary mt-2"
              onClick={handleLogin}>
        Login
      </button>
+     
     </div>
    );
   
