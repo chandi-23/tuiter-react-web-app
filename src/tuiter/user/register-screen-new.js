@@ -8,8 +8,8 @@ function RegisterScreen() {
  const [password, setPassword] = useState("");
  const [firstname, setFirstname] = useState("");
  const [lastname, setLastname] = useState("");
- const [_id, set_id] = useState("");
- const num = Math.floor(Math.random() * 1000);
+ //const [_id, set_id] = useState("");
+ //const num = Math.floor(Math.random() * 1000);
 
  const navigate = useNavigate();
  const dispatch = useDispatch();
@@ -23,7 +23,7 @@ function RegisterScreen() {
         return;
     }
   try {
-    const resp = await dispatch(registerThunk({ _id, firstname, lastname, username, password }));
+    const resp = await dispatch(registerThunk({ firstname, lastname, username, password }));
     
     if (resp.error){
       //console.log("response status", resp.error)
@@ -51,7 +51,7 @@ function RegisterScreen() {
       <input className="form-control" type="text" value={firstname}
        onChange={(event) =>{
         setFirstname(event.target.value);
-        set_id(event.target.value+num)}
+        }
        }  />
      </div>
      <div className="mt-2">
